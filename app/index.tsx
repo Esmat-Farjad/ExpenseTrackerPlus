@@ -1,29 +1,41 @@
 
 import { useState } from "react";
-import { Alert,Text, View, Image,ScrollView,Modal, Button,Pressable, ImageBackground, StatusBar} from "react-native";
+import { Alert,Text,ActivityIndicator, View, Image,ScrollView,Modal, Button,Pressable, ImageBackground, StatusBar} from "react-native";
 const logImage = require("../assets/images/react-logo.png");
 export default function Index() {
   const [isModalVisible, setIsVisibleModal] = useState(false); 
   const [state, setState] = useState(false)
   return (
     <View style={{flex: 1,padding:50}}>
+      {/* toggle between show/hide statusbar */}
+      <ActivityIndicator 
+      size={"large"}
+      color={"green"}
+      animating={state}
+      />
+      <Button title="Alert"color={"teal"} onPress={() =>{
+        Alert.alert("Modal Alert","The modal closed by user interaction",[
+          {text:"Cancel",onPress:() => console.log("Cancel Pressed"),},
+          {text:"OK",onPress: () => console.log("Okey Pressed"),},
+        ]);
+      }}/>
       <StatusBar backgroundColor="black" barStyle="light-content" hidden={state}/>
       <Button title="Toggle StatusBar" onPress={() => {
         if(state){
           setState(false);
         }else{
           setState(true);
-        }
-
-      }}
-      />
+        }}}/>
       <ScrollView>
       <Button title="Open Modal" onPress={() => setIsVisibleModal(true)} color="midnightblue"/>
         {/* modal start */}
       <Modal 
       visible={isModalVisible} 
       onRequestClose={() => {
-        Alert.alert("Modal has been closed.");
+        Alert.alert("Modal Alert","The modal closed by user interaction",[
+          {text:"Cancel",onPress:() => console.log("Cancel Pressed"),},
+          {text:"OK",onPress: () => console.log("Okey Pressed"),},
+        ]);
         setIsVisibleModal(false);
       }}
       animationType="slide"
@@ -39,6 +51,7 @@ export default function Index() {
       <Pressable onPress={()=> console.log("Image pressed")} onLongPress={()=> alert("Hello ")}>
         <Image source={logImage}/>
       </Pressable>
+      
       <Pressable onPress={()=> console.log("Text pressed")}>
         <Text>Hello Esmatuual & Abdul Mateen</Text>
         <Text>
