@@ -1,4 +1,4 @@
-import { Text, View, Image,ScrollView, ImageBackground} from "react-native";
+import { Text, View, Image,ScrollView, Button, ImageBackground} from "react-native";
 const logImage = require("../assets/images/react-logo.png");
 export default function Index() {
   return (
@@ -6,7 +6,7 @@ export default function Index() {
       <ScrollView>
       {/* <ImageBackground source={logImage} style={{flex:1}}> */}
       <Image source={logImage}/>
-      <Text>Hello Esmatullah</Text>
+      <Text>Hello Esmatuual & Abdul Mateen</Text>
       <Text>
       In publishing and graphic design, 
       Lorem ipsum is a placeholder text 
@@ -16,6 +16,10 @@ export default function Index() {
       placeholder before the final copy is available.
       </Text>
       <Image source={{uri:'https://picsum.photos/200/300'}} style={{width:300,height:300}}/>
+      <Button 
+      title="press" 
+      onPress={()=>console.log("button pressed ")} 
+      color="midnightblue" disabled/>
       <Image source={{uri:'https://picsum.photos/200/300'}} style={{width:300,height:300}}/>
       <Image source={{uri:'https://picsum.photos/200/300'}} style={{width:300,height:300}}/>
       {/* </ImageBackground> */}
