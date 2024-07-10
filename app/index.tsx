@@ -1,13 +1,14 @@
 
 import { useState } from "react";
 import { Alert,Text,ActivityIndicator, View, Image,ScrollView,Modal, Button,Pressable, ImageBackground, StatusBar} from "react-native";
+import Greet from "@/components/Greet";
 const logImage = require("../assets/images/react-logo.png");
 export default function Index() {
   const [isModalVisible, setIsVisibleModal] = useState(false); 
   const [state, setState] = useState(false)
   return (
     <View style={{flex: 1,padding:50}}>
-      {/* toggle between show/hide statusbar */}
+      
       <ActivityIndicator 
       size={"large"}
       color={"green"}
@@ -19,6 +20,7 @@ export default function Index() {
           {text:"OK",onPress: () => console.log("Okey Pressed"),},
         ]);
       }}/>
+      {/* toggle between show/hide statusbar */}
       <StatusBar backgroundColor="black" barStyle="light-content" hidden={state}/>
       <Button title="Toggle StatusBar" onPress={() => {
         if(state){
@@ -53,7 +55,7 @@ export default function Index() {
       </Pressable>
       
       <Pressable onPress={()=> console.log("Text pressed")}>
-        <Text>Hello Esmatuual & Abdul Mateen</Text>
+        <Greet name="Esmatullah Hashimi"/>
         <Text>
         In publishing and graphic design, 
         Lorem ipsum is a placeholder text 
