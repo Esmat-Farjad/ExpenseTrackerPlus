@@ -1,14 +1,15 @@
 
 import { useState } from "react";
-import { Alert,Text,ActivityIndicator, View, Image,ScrollView,Modal, Button,Pressable, ImageBackground, StatusBar} from "react-native";
+import { Alert,Text,ActivityIndicator,StyleSheet, View, Image,ScrollView,Modal, Button,Pressable, ImageBackground, StatusBar} from "react-native";
 import Greet from "@/components/Greet";
 const logImage = require("../assets/images/react-logo.png");
 export default function Index() {
   const [isModalVisible, setIsVisibleModal] = useState(false); 
   const [state, setState] = useState(false)
   return (
-    <View style={{flex: 1,padding:50}}>
-      
+    <View style={styles.container}>
+      {/* toggle between show/hide statusbar */}
+      <StatusBar backgroundColor="black" barStyle="light-content" hidden={state}/>
       <ActivityIndicator 
       size={"large"}
       color={"green"}
@@ -20,8 +21,7 @@ export default function Index() {
           {text:"OK",onPress: () => console.log("Okey Pressed"),},
         ]);
       }}/>
-      {/* toggle between show/hide statusbar */}
-      <StatusBar backgroundColor="black" barStyle="light-content" hidden={state}/>
+      
       <Button title="Toggle StatusBar" onPress={() => {
         if(state){
           setState(false);
@@ -45,7 +45,7 @@ export default function Index() {
 
         <View style={{ flex:1, backgroundColor:"teal", padding:50}}>
           <Button title="Close Modal" color="teal" onPress={()=>setIsVisibleModal(false)}/>
-          <Text>Modal Content</Text>
+          <Text style={styles.title}>Modal Content</Text>
         </View>
 
       </Modal>
@@ -56,7 +56,7 @@ export default function Index() {
       
       <Pressable onPress={()=> console.log("Text pressed")}>
         <Greet name="Esmatullah Hashimi"/>
-        <Text>
+        <Text style={styles.text}>
         In publishing and graphic design, 
         Lorem ipsum is a placeholder text 
         commonly used to demonstrate the visual 
@@ -78,3 +78,19 @@ export default function Index() {
     </View>
   );
 }
+const styles = StyleSheet.create({
+  container: {
+    flex:1,
+    backgroundColor:"white",
+    padding:50
+  },
+  title: {
+    fontSize:24,
+    fontWeight:'bold',
+    textTransform:'capitalize'
+  },
+  text: {
+    fontSize:12,
+    fontWeight:'500'
+  },
+});
