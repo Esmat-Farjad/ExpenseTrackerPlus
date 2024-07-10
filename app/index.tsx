@@ -1,24 +1,39 @@
+
 import { useState } from "react";
-import { Alert,Text, View, Image,ScrollView,Modal, Button,Pressable, ImageBackground} from "react-native";
+import { Alert,Text, View, Image,ScrollView,Modal, Button,Pressable, ImageBackground, StatusBar} from "react-native";
 const logImage = require("../assets/images/react-logo.png");
 export default function Index() {
   const [isModalVisible, setIsVisibleModal] = useState(false); 
+  const [state, setState] = useState(false)
   return (
     <View style={{flex: 1,padding:50}}>
+      <StatusBar backgroundColor="black" barStyle="light-content" hidden={state}/>
+      <Button title="Toggle StatusBar" onPress={() => {
+        if(state){
+          setState(false);
+        }else{
+          setState(true);
+        }
+
+      }}
+      />
       <ScrollView>
       <Button title="Open Modal" onPress={() => setIsVisibleModal(true)} color="midnightblue"/>
-      <Modal visible={isModalVisible} 
+        {/* modal start */}
+      <Modal 
+      visible={isModalVisible} 
       onRequestClose={() => {
         Alert.alert("Modal has been closed.");
         setIsVisibleModal(false);
       }}
       animationType="slide"
       presentationStyle="formSheet">
-        <View style={{ flex:1, backgroundColor:"teal", padding:50}}>
-          <Text>Modal Content</Text>
-          <Button title="Close Modal" color="teal" onPress={()=>setIsVisibleModal(false)}/>
 
+        <View style={{ flex:1, backgroundColor:"teal", padding:50}}>
+          <Button title="Close Modal" color="teal" onPress={()=>setIsVisibleModal(false)}/>
+          <Text>Modal Content</Text>
         </View>
+
       </Modal>
       {/* <ImageBackground source={logImage} style={{flex:1}}> */}
       <Pressable onPress={()=> console.log("Image pressed")} onLongPress={()=> alert("Hello ")}>
