@@ -1,98 +1,99 @@
 
 import { useState } from "react";
 import { Alert,Text,ActivityIndicator,StyleSheet, View, Image,ScrollView,Modal, Button,Pressable, ImageBackground, StatusBar} from "react-native";
-import Greet from "@/components/Greet";
-const landingImage = require("../assets/images/landing.jpg");
+
+
+
+const bgImage = require("../assets/images/card.jpg");
+const bgImage2 = require("../assets/images/card1.jpg");
+
+
 export default function Index() {
   const [isModalVisible, setIsVisibleModal] = useState(false); 
-  const [state, setState] = useState(false)
+  const [state, setState] = useState(false);
+
   return (
-      <ScrollView>
+      <ScrollView style={styles.mainContainer}>
         <StatusBar backgroundColor={'default'} barStyle={'dark-content'}/>
-        <ImageBackground source={landingImage} style={styles.image}>
-        </ImageBackground>
+        <View style={{flex:1,flexDirection:'row',flexWrap:'wrap'}}>
+              <Text style={styles.menuIcon}>Menu</Text>
+              <Text style={styles.menuTitle}>My Wallet</Text>
+              <Text style={styles.menuSearch}>Search</Text>
+        </View>
+        {/* card section */}
         <View style={styles.container}>
-            <Text style={styles.title}>Welcome to ExpenseTracker+</Text>
+          <View style={styles.containerBox}>
+            <ImageBackground source={bgImage}>
+            <Text style={styles.boxTitle}>Personal Wallet</Text>
+            <Text style={styles.boxSubtitle}>Current Balance</Text>
+            <Text style={styles.boxDigit}>$10.874538</Text>
+            </ImageBackground>
+          </View>
+          <Text style={{marginTop:20,color:'gray'}}>Transaction History</Text>
+          <View style={styles.dateNaigation}>
+            <Pressable onPress={()=> console.log("Daily expense")}>
+              <Text style={styles.dateContent} >Daily</Text>
+            </Pressable >
+            <Pressable onPress={()=> console.log("Weekly expense")}>
+              <Text style={styles.dateContent}>Weekly</Text>
+            </Pressable>
+            <Pressable onPress={()=> console.log("Monthly expense")}>
+              <Text style={styles.dateContent}>Monthly</Text>
+            </Pressable>
+            <Pressable onPress={()=> console.log("Yearly expense")}>
+              <Text style={styles.dateContent}>Yearly</Text>
+            </Pressable>
+          </View>
+          <View style={{marginVertical:10}}>
+            <View style={styles.listHolder}>
+              <View style={{flex:1, justifyContent:'center',alignItems:'center'}}>
+              
+              </View>
+              <View style={{flex:3,borderEndColor:'gray',borderEndWidth:1}}>
+                <Text style={styles.listTitle}>Shopping</Text>
+                <Text style={styles.listText}>23 May</Text>
+              </View>
+              <View style={{flex:1}}>
+                <Text style={{textAlign:'right',color:'yellow'}}>$67,254</Text>
+              </View>
+            </View>
+          </View>
+
         </View>
       </ScrollView>
-    // <View style={styles.container}>
-    //   {/* toggle between show/hide statusbar */}
-    //   <StatusBar backgroundColor="black" barStyle="light-content" hidden={state}/>
-    //   <ActivityIndicator 
-    //   size={"large"}
-    //   color={"green"}
-    //   animating={state}
-    //   />
-    //   <Button title="Alert"color={"teal"} onPress={() =>{
-    //     Alert.alert("Modal Alert","The modal closed by user interaction",[
-    //       {text:"Cancel",onPress:() => console.log("Cancel Pressed"),},
-    //       {text:"OK",onPress: () => console.log("Okey Pressed"),},
-    //     ]);
-    //   }}/>
-      
-    //   <Button title="Toggle StatusBar" onPress={() => {
-    //     if(state){
-    //       setState(false);
-    //     }else{
-    //       setState(true);
-    //     }}}/>
-    //   <ScrollView>
-    //   <Button title="Open Modal" onPress={() => setIsVisibleModal(true)} color="midnightblue"/>
-    //     {/* modal start */}
-    //   <Modal 
-    //   visible={isModalVisible} 
-    //   onRequestClose={() => {
-    //     Alert.alert("Modal Alert","The modal closed by user interaction",[
-    //       {text:"Cancel",onPress:() => console.log("Cancel Pressed"),},
-    //       {text:"OK",onPress: () => console.log("Okey Pressed"),},
-    //     ]);
-    //     setIsVisibleModal(false);
-    //   }}
-    //   animationType="slide"
-    //   presentationStyle="formSheet">
-
-    //     <View style={{ flex:1, backgroundColor:"teal", padding:50}}>
-    //       <Button title="Close Modal" color="teal" onPress={()=>setIsVisibleModal(false)}/>
-    //       <Text style={styles.title}>Modal Content</Text>
-    //     </View>
-
-    //   </Modal>
-    //   {/* <ImageBackground source={logImage} style={{flex:1}}> */}
-    //   <Pressable onPress={()=> console.log("Image pressed")} onLongPress={()=> alert("Hello ")}>
-    //     <Image source={logImage}/>
-    //   </Pressable>
-      
-    //   <Pressable onPress={()=> console.log("Text pressed")}>
-    //     <Greet name="Esmatullah Hashimi"/>
-    //     <Text style={styles.text}>
-    //     In publishing and graphic design, 
-    //     Lorem ipsum is a placeholder text 
-    //     commonly used to demonstrate the visual 
-    //     form of a document or a typeface without relying 
-    //     on meaningful content. Lorem ipsum may be used as a 
-    //     placeholder before the final copy is available.
-    //     </Text>
-    //   </Pressable>
-    //   <Image source={{uri:'https://picsum.photos/200/300'}} style={{width:300,height:300}}/>
-    //   <Button 
-    //   title="press" 
-    //   onPress={()=>console.log("button pressed ")} 
-    //   color="midnightblue" disabled/>
-    //   <Image source={{uri:'https://picsum.photos/200/300'}} style={{width:300,height:300}}/>
-    //   <Image source={{uri:'https://picsum.photos/200/300'}} style={{width:300,height:300}}/>
-    //   {/* </ImageBackground> */}
-    //   {/* <Image source={{uri:'online image from the web'}} style={{width:300,height:300}}/> */}
-    //     </ScrollView>
-    // </View>
+    
   );
 }
 const styles = StyleSheet.create({
+  mainContainer:{
+    backgroundColor:"#212129",
+    padding:10
+  },
+  listHolder:{
+    backgroundColor:'#404040',
+    padding:10,
+    borderBottomEndRadius:10,
+    borderBottomStartRadius:10,
+    borderTopEndRadius:10,
+    borderTopStartRadius:10,
+    flex:5,
+    flexDirection:'row',
+    marginHorizontal:'auto',
+    width:'auto'
+
+  },
+  listTitle:{
+    color:'white',
+    fontSize:15,
+  },
+  listText:{
+    color:'gray',
+    fontSize:12
+  },
   container: {
     flex:1,
-    justifyContent:'center',
-    alignItems:'center',
-    backgroundColor:"transparent",
-    padding:20
+    flexDirection:'column',
+    padding:10
   },
   title: {
     fontSize:24,
@@ -110,4 +111,69 @@ const styles = StyleSheet.create({
     objectFit:'cover',
     
   },
+  menu:{
+    display:'flex',
+    flexDirection:'row',
+    cursor:'pointer',
+  },
+
+  menuIcon:{
+    color:'white',
+    marginRight:10
+  },
+  menuTitle:{
+    color:'lightgray',
+    fontWeight:'thin',
+    fontSize:20,
+    marginHorizontal:'auto'
+  },
+  menuSearch:{
+    color:'white',
+    marginLeft:10
+  },
+  containerBox:{
+    borderBottomEndRadius:10,
+    borderBottomStartRadius:10,
+    borderTopEndRadius:10,
+    borderTopStartRadius:10,
+    width:'auto',
+    height:'auto',
+    overflow:'hidden',
+    marginVertical:20
+  },
+  boxTitle:{
+    color:'white',
+    fontWeight:'bold',
+    padding:15,
+  },
+  boxSubtitle: {
+    color:'white',
+    paddingTop:15,
+    paddingHorizontal:15,
+    paddingBottom:0
+  },
+  boxDigit:{
+    color:'white',
+    paddingHorizontal:15,
+    paddingBottom:15,
+    paddingTop:0
+  },
+  dateNaigation:{
+    backgroundColor:'#404040',
+    padding:10, 
+    flex:1,
+    flexDirection:'row',
+    borderBottomEndRadius:10,
+    borderBottomStartRadius:10,
+    borderTopEndRadius:10,
+    borderTopStartRadius:10,
+  },
+  dateContent:{
+    color:'white',
+    paddingHorizontal:18,
+    fontSize:12,
+    fontWeight:'100',
+    cursor:'pointer'
+  },
+
 });
