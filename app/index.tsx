@@ -15,14 +15,16 @@ export default function Index() {
    
       <ScrollView style={styles.mainContainer}>
         <StatusBar backgroundColor={'default'} barStyle={'dark-content'}/>
-        <View style={{flex:1,flexDirection:'row',flexWrap:'wrap'}}>
-              <Text style={styles.menuIcon}>
-                <Ionicons name="reorder-two" size={28}></Ionicons>
-              </Text>
-              <Text style={styles.menuTitle}>My Wallet</Text>
-              <Text style={styles.menuSearch}>
-                <Ionicons name="search-outline" size={28}></Ionicons>
-              </Text>
+        <View style={{flex:5,flexDirection:'row',flexWrap:'wrap'}}>
+              <View style={{flex:1,justifyContent:'center',alignItems:'center'}}>
+                <Ionicons name="reorder-two" color={'white'} size={28}></Ionicons>
+              </View>
+              <View style={{flex:3,justifyContent:'center',alignItems:'center'}}>
+                <Text style={{color:'lightgray',fontSize:20,fontWeight:'thin'}}>My Wallet</Text>
+              </View>
+              <View style={{flex:1,justifyContent:'center',alignItems:'center'}}>
+                <Ionicons name="search-outline" color={'white'} size={28}></Ionicons>
+              </View>
         </View>
         {/* card section */}
         <View style={styles.container}>
