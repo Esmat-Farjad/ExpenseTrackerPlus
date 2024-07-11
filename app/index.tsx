@@ -1,8 +1,7 @@
 
 import { useState } from "react";
 import { Alert,Text,ActivityIndicator,StyleSheet, View, Image,ScrollView,Modal, Button,Pressable, ImageBackground, StatusBar} from "react-native";
-
-
+import Ionicons from '@expo/vector-icons/Ionicons';
 
 const bgImage = require("../assets/images/card.jpg");
 const bgImage2 = require("../assets/images/card1.jpg");
@@ -16,9 +15,13 @@ export default function Index() {
       <ScrollView style={styles.mainContainer}>
         <StatusBar backgroundColor={'default'} barStyle={'dark-content'}/>
         <View style={{flex:1,flexDirection:'row',flexWrap:'wrap'}}>
-              <Text style={styles.menuIcon}>Menu</Text>
+              <Text style={styles.menuIcon}>
+              <Ionicons name="reorder-two" size={28}></Ionicons>
+              </Text>
               <Text style={styles.menuTitle}>My Wallet</Text>
-              <Text style={styles.menuSearch}>Search</Text>
+              <Text style={styles.menuSearch}>
+              <Ionicons name="search-outline" size={28}></Ionicons>
+              </Text>
         </View>
         {/* card section */}
         <View style={styles.container}>
@@ -47,7 +50,7 @@ export default function Index() {
           <View style={{marginVertical:10}}>
             <View style={styles.listHolder}>
               <View style={{flex:1, justifyContent:'center',alignItems:'center'}}>
-              
+              <Ionicons name="bag-handle-outline" size={40} color={'gray'}></Ionicons>
               </View>
               <View style={{flex:3,borderEndColor:'gray',borderEndWidth:1}}>
                 <Text style={styles.listTitle}>Shopping</Text>
