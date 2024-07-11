@@ -12,24 +12,25 @@ export default function Index() {
   const [state, setState] = useState(false);
 
   return (
+   
       <ScrollView style={styles.mainContainer}>
         <StatusBar backgroundColor={'default'} barStyle={'dark-content'}/>
         <View style={{flex:1,flexDirection:'row',flexWrap:'wrap'}}>
               <Text style={styles.menuIcon}>
-              <Ionicons name="reorder-two" size={28}></Ionicons>
+                <Ionicons name="reorder-two" size={28}></Ionicons>
               </Text>
               <Text style={styles.menuTitle}>My Wallet</Text>
               <Text style={styles.menuSearch}>
-              <Ionicons name="search-outline" size={28}></Ionicons>
+                <Ionicons name="search-outline" size={28}></Ionicons>
               </Text>
         </View>
         {/* card section */}
         <View style={styles.container}>
           <View style={styles.containerBox}>
             <ImageBackground source={bgImage}>
-            <Text style={styles.boxTitle}>Personal Wallet</Text>
-            <Text style={styles.boxSubtitle}>Current Balance</Text>
-            <Text style={styles.boxDigit}>$10.874538</Text>
+              <Text style={styles.boxTitle}>Personal Wallet</Text>
+              <Text style={styles.boxSubtitle}>Current Balance</Text>
+              <Text style={styles.boxDigit}>$10.874538</Text>
             </ImageBackground>
           </View>
           <Text style={{marginTop:20,color:'gray'}}>Transaction History</Text>
@@ -50,7 +51,7 @@ export default function Index() {
           <View style={{marginVertical:10}}>
             <View style={styles.listHolder}>
               <View style={{flex:1, justifyContent:'center',alignItems:'center'}}>
-              <Ionicons name="bag-handle-outline" size={40} color={'gray'}></Ionicons>
+                <Ionicons style={styles.iconBg} name="bag-handle-sharp" size={24}></Ionicons>
               </View>
               <View style={{flex:3,borderEndColor:'gray',borderEndWidth:1}}>
                 <Text style={styles.listTitle}>Shopping</Text>
@@ -60,29 +61,70 @@ export default function Index() {
                 <Text style={{textAlign:'right',color:'yellow'}}>$67,254</Text>
               </View>
             </View>
+            {/* next item */}
+            <View style={styles.listHolder}>
+              <View style={{flex:1, justifyContent:'center',alignItems:'center'}}>
+                <Ionicons style={styles.iconBg} name="fast-food-sharp" size={24} color={'gray'}></Ionicons>
+              </View>
+              <View style={{flex:3,borderEndColor:'gray',borderEndWidth:1}}>
+                <Text style={styles.listTitle}>Food Expense</Text>
+                <Text style={styles.listText}>23 May</Text>
+              </View>
+              <View style={{flex:1}}>
+                <Text style={{textAlign:'right',color:'yellow'}}>$38,54</Text>
+              </View>
+            </View>
+            {/* next item */}
+            <View style={styles.listHolder}>
+              <View style={{flex:1, justifyContent:'center',alignItems:'center'}}>
+                <Ionicons style={styles.iconBg} name="document-text-sharp" size={24} ></Ionicons>
+              </View>
+              <View style={{flex:3,borderEndColor:'gray',borderEndWidth:1}}>
+                <Text style={styles.listTitle}>Bill Payment</Text>
+                <Text style={styles.listText}>23 May</Text>
+              </View>
+              <View style={{flex:1}}>
+                <Text style={{textAlign:'right',color:'yellow'}}>$5,000</Text>
+              </View>
+            </View>
+            {/* next item */}
+            <View style={styles.listHolder}>
+              <View style={{flex:1, justifyContent:'center',alignItems:'center'}}>
+                <Ionicons style={styles.iconBg} name="bar-chart-sharp" size={24} ></Ionicons>
+              </View>
+              <View style={{flex:3,borderEndColor:'gray',borderEndWidth:1}}>
+                <Text style={styles.listTitle}>Other Expense</Text>
+                <Text style={styles.listText}>23 May</Text>
+              </View>
+              <View style={{flex:1}}>
+                <Text style={{textAlign:'right',color:'yellow'}}>$2,500</Text>
+              </View>
+            </View>
           </View>
-
         </View>
-      </ScrollView>
-    
-  );
-}
+    </ScrollView>
+
+  );}
 const styles = StyleSheet.create({
   mainContainer:{
     backgroundColor:"#212129",
     padding:10
   },
+  iconBg:{
+    backgroundColor:'#000',
+    color:'white',
+    padding:5,
+    borderRadius:10
+  },
   listHolder:{
-    backgroundColor:'#404040',
+    backgroundColor:'#374151',
     padding:10,
-    borderBottomEndRadius:10,
-    borderBottomStartRadius:10,
-    borderTopEndRadius:10,
-    borderTopStartRadius:10,
+    borderRadius:10,
     flex:5,
     flexDirection:'row',
     marginHorizontal:'auto',
-    width:'auto'
+    width:'auto',
+    marginVertical:3
 
   },
   listTitle:{
@@ -135,10 +177,7 @@ const styles = StyleSheet.create({
     marginLeft:10
   },
   containerBox:{
-    borderBottomEndRadius:10,
-    borderBottomStartRadius:10,
-    borderTopEndRadius:10,
-    borderTopStartRadius:10,
+    borderRadius:10,
     width:'auto',
     height:'auto',
     overflow:'hidden',
@@ -162,14 +201,12 @@ const styles = StyleSheet.create({
     paddingTop:0
   },
   dateNaigation:{
-    backgroundColor:'#404040',
+    backgroundColor:'#374151',
     padding:10, 
     flex:1,
     flexDirection:'row',
-    borderBottomEndRadius:10,
-    borderBottomStartRadius:10,
-    borderTopEndRadius:10,
-    borderTopStartRadius:10,
+    borderRadius:10,
+    
   },
   dateContent:{
     color:'white',
