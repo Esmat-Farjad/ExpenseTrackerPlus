@@ -6,7 +6,6 @@ import Ionicons from '@expo/vector-icons/Ionicons';
 const bgImage = require("../assets/images/card.jpg");
 const bgImage2 = require("../assets/images/card1.jpg");
 
-
 export default function Index() {
   const [isModalVisible, setIsVisibleModal] = useState(false); 
   const [state, setState] = useState(false);
@@ -14,17 +13,18 @@ export default function Index() {
   return (
    
       <ScrollView style={styles.mainContainer}>
-        <StatusBar backgroundColor={'default'} barStyle={'dark-content'}/>
+        <StatusBar barStyle={'dark-content'}/>
+        
         <View style={{flex:5,flexDirection:'row',flexWrap:'wrap'}}>
-              <View style={{flex:1,justifyContent:'center',alignItems:'center'}}>
-                <Ionicons name="reorder-two" color={'white'} size={28}></Ionicons>
-              </View>
-              <View style={{flex:3,justifyContent:'center',alignItems:'center'}}>
-                <Text style={{color:'lightgray',fontSize:20,fontWeight:'thin'}}>My Wallet</Text>
-              </View>
-              <View style={{flex:1,justifyContent:'center',alignItems:'center'}}>
-                <Ionicons name="search-outline" color={'white'} size={28}></Ionicons>
-              </View>
+            <View style={{flex:1,justifyContent:'center',alignItems:'center'}}>
+              <Ionicons name="reorder-two" color={'white'} size={28}></Ionicons>
+            </View>
+            <View style={{flex:3,justifyContent:'center',alignItems:'center'}}>
+              <Text style={{color:'lightgray',fontSize:20,fontWeight:'thin',textTransform:"uppercase"}}>My Wallet</Text>
+            </View>
+            <View style={{flex:1,justifyContent:'center',alignItems:'center'}}>
+              <Ionicons name="search-outline" color={'white'} size={28}></Ionicons>
+            </View>
         </View>
         {/* card section */}
         <View style={styles.container}>
@@ -105,7 +105,7 @@ export default function Index() {
           </View>
         </View>
     </ScrollView>
-
+    
   );}
 const styles = StyleSheet.create({
   mainContainer:{
